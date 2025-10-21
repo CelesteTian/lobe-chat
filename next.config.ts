@@ -43,6 +43,7 @@ const nextConfig: NextConfig = {
     // so we need to disable it
     // refs: https://github.com/lobehub/lobe-chat/pull/7430
     serverMinification: false,
+    turbopackFileSystemCacheForDev: true,
     webVitalsAttribution: ['CLS', 'LCP'],
     webpackBuildWorker: true,
     webpackMemoryOptimizations: true,
@@ -198,7 +199,6 @@ const nextConfig: NextConfig = {
     },
   },
   reactStrictMode: true,
-
   redirects: async () => [
     {
       destination: '/sitemap-index.xml',
@@ -271,6 +271,7 @@ const nextConfig: NextConfig = {
   // when external packages in dev mode with turbopack, this config will lead to bundle error
   serverExternalPackages: isProd ? ['@electric-sql/pglite'] : undefined,
   transpilePackages: ['pdfjs-dist', 'mermaid'],
+  turbopack: {},
 
   typescript: {
     ignoreBuildErrors: true,
